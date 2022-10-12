@@ -36,7 +36,7 @@ public class DriveCommands
             double x = mJoystick.getX();
             double y = mJoystick.getY();
 
-            
+            mDrive.arcadeDrive(y, x);
         }
     }
 }
