@@ -5,6 +5,8 @@ import com.spartronics4915.frc.subsystems.Drive;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
+import static com.spartronics4915.frc.Constants.Drive.*;
+
 public class DriveCommands
 {
     private final Drive mDrive;
@@ -37,6 +39,11 @@ public class DriveCommands
             double y = mJoystick.getY();
 
             mDrive.arcadeDrive(y, x);
+        }
+
+        private double applyResponseCurve(double x)
+        {
+            return Math.pow(x, kJoystickInputResponseCurveExponent);
         }
     }
 }

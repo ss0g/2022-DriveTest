@@ -24,5 +24,7 @@ public final class Constants
 
         public static final boolean kLeftMotorIsInverted = false;
         public static final boolean kRightMotorIsInverted = false;
+
+        public static final double kJoystickInputResponseCurveExponent = 5/3; // terrible name
     }
 }
