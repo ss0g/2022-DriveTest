@@ -11,5 +11,18 @@ package com.spartronics4915.frc;
  */
 public final class Constants
 {
+    public static final class OIConstants
+    {
+        public static final int kJoystickPort = -1;
+        public static final int kArcadeControllerPort = -1;
+    }
+    
+    public static final class Drive
+    {
+        public static final int kLeftMotorID = -1;
+        public static final int kRightMotorID = -1;
 
+        public static final boolean kLeftMotorIsInverted = false;
+        public static final boolean kRightMotorIsInverted = false;
+    }
 }

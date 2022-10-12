@@ -1,9 +1,14 @@
 package com.spartronics4915.frc;
 
+import com.spartronics4915.frc.commands.DriveCommands;
 import com.spartronics4915.frc.commands.ExampleCommand;
+import com.spartronics4915.frc.subsystems.Drive;
 import com.spartronics4915.frc.subsystems.ExampleSubsystem;
 
+import static com.spartronics4915.frc.Constants.OIConstants;
+
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -20,11 +25,21 @@ public class RobotContainer
     public final ExampleSubsystem mExampleSubsystem;
     public final ExampleCommand mAutoCommand;
 
+    public final Drive mDrive;
+    public final DriveCommands mDriveCommands;
+
+    public final Joystick mDriverController = new Joystick(OIConstants.kJoystickPort);
+    public final Joystick mArcadeController = new Joystick(OIConstants.kArcadeControllerPort);
+
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
     public RobotContainer()
     {
         // ...and constructed here.
         mExampleSubsystem = new ExampleSubsystem();
+
+        mDrive = new Drive();
+        mDriveCommands = new DriveCommands(mDrive, mDriverController, mArcadeController);
+
         mAutoCommand = new ExampleCommand(mExampleSubsystem);
 
         configureButtonBindings();
